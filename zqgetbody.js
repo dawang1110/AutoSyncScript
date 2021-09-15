@@ -6,7 +6,7 @@ if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/article\/co
     const articlebodyVal = $request.body
 let YouthBody=[];
      if (articlebodyVal) {       
-     let bodys=$.getdata('zqgetbody_body');
+     let bodys=$.getdata('zqbody_body');
      
      if(bodys){
 
@@ -17,14 +17,14 @@ let YouthBody=[];
         }
 
       YouthBody = bodys.split('&');
-
+      articlebodyVal = articlebodyVal.replace(/zqkd_parem/g,"p")   
      
      bodys=articlebodyVal+'&'+bodys;
     }
     else{
         bodys=articlebodyVal;
     }
-     $.setdata(bodys,'zqgetbody_body')
+     $.setdata(bodys,'zqbody_body')
      $.msg('','',`添加阅读请求: 成功🎉,当前body${YouthBody.length+1}`)
      }
    }
